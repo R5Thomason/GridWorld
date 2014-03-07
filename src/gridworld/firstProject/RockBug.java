@@ -15,27 +15,26 @@ public class RockBug extends Bug
 	this.setColor(Color.GREEN);
     }
     
-    public void move()
-    {
-	Grid<Actor> gr = getGrid();
-	if (gr == null)
+	public void move()
 	{
-	    return;
+		Grid<Actor> gr = getGrid();
+		if (gr == null)
+		{
+			return;
+		}
+
+		Location loc = getLocation();
+		Location next = loc.getAdjacentLocation(getDirection());
+
+		if (gr.isValid(next))
+		{
+			moveTo(next);
+		} else
+		{
+			removeSelfFromGrid();
+		}
+		Rock currentRock = new Rock(getColor());
+		currentRock.putSelfInGrid(gr, loc);
 	}
-	
-	Location loc = getLocation();
-	Location next = loc.getAdjacentLocation(getDirection());
-	
-	if (gr.isValid(next))
-	{
-	    moveTo(next);
-	}
-	else
-	{
-	    removeSelfFromGrid();
-	}
-	Rock currentRock = new Rock(getColor());
-	currentRock.putSelfInGrid(gr, loc);
-    }
     
 }

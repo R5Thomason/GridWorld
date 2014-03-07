@@ -29,14 +29,16 @@ import info.gridworld.actor.Rock;
  */
 public class BugRunner
 {
-    public static void main(String[] args)
-    {
-        ActorWorld world = new ActorWorld();
-        world.add(new Bug());
-        world.add(new Rock());
-        world.add(new RockBug());
-        world.add(new DeathRock());
-//        world.add(new SpawnBug());
-        world.show();
-    }
+	public static void main(String[] args)
+	{
+		ActorWorld world = new ActorWorld();
+		world.add(new Bug());
+		world.add(new Rock());
+		world.add(new RockBug());
+		world.add(new DeathRock());
+		world.add(new SpawnBug());
+		world.add(new TriangleBug(4));
+		world.add(new HungryCritter());
+		world.show();
+	}
 }
